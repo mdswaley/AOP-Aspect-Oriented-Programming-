@@ -5,7 +5,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-@Aspect
+//@Aspect
 @Component
 @Slf4j
 public class LoggingAspectV2 {
@@ -26,5 +26,10 @@ public class LoggingAspectV2 {
     @AfterReturning(value = "allServiceMethodPointcut()",returning = "returnObj")
     public void afterReturningServiceMethodCall(JoinPoint jp,Object returnObj){
         log.info("after returning service method call {} , {}",jp.getSignature(),returnObj);
+    }
+
+    @AfterThrowing("allServiceMethodPointcut()")
+    public void afterReturningServiceMethodThrowing(JoinPoint jp){
+        log.info("after returning service method throwing {}",jp.getSignature());
     }
 }

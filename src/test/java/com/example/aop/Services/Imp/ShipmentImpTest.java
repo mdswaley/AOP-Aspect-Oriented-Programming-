@@ -16,7 +16,7 @@ class ShipmentImpTest {
 
     @Test
     void aopOrderPackaging(){
-        String s = shipmentImp.orderPackage(1L);
+        String s = shipmentImp.orderPackage(2L);
 //        assertEquals("Successfully package your order",res);
         log.info(s);
     }
