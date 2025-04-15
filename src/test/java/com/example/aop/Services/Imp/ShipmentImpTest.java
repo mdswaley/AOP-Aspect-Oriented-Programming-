@@ -23,7 +23,8 @@ class ShipmentImpTest {
 
     @Test
     void aopTrackOrder(){
-        shipmentImp.trackPackage(1L);
+        String s = shipmentImp.trackPackage(1L);
+        log.info(s);
     }
 
 }

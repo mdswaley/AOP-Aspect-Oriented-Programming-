@@ -2,6 +2,7 @@ package com.example.aop.Services.Imp;
 
 import com.example.aop.Aspect.MyLogging;
 import com.example.aop.Services.ShipmentService;
+import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,19 +21,13 @@ public class ShipmentImp implements ShipmentService {
             log.error("Error occurred while processing the order.");
         }
 
-        return "Successfully package your order";
+        return "Successfully package your order with id "+ordId;
     }
 
     @Override
     @Transactional
     public String trackPackage(Long ordId) {
-        try {
-            log.info("tracking your order.");
-            Thread.sleep(50);
-        }catch (InterruptedException ex){
-            log.error("Error occurred while tracking the order.");
-        }
-
-        return "Successfully track your order";
+        log.info("tracking your order.");
+        throw new RuntimeException("Error occurred while tracking the order.");
     }
 }
