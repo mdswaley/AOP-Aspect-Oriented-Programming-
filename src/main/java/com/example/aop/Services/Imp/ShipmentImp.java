@@ -1,5 +1,6 @@
 package com.example.aop.Services.Imp;
 
+import com.example.aop.Aspect.ExecutionTimeTrack;
 import com.example.aop.Aspect.MyLogging;
 import com.example.aop.Services.ShipmentService;
 import lombok.EqualsAndHashCode;
@@ -13,6 +14,7 @@ public class ShipmentImp implements ShipmentService {
 
     @Override
     @MyLogging
+    @ExecutionTimeTrack
     public String orderPackage(Long ordId) {
         try {
             log.info("Processing the order.");
